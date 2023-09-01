@@ -1,0 +1,160 @@
+/* Import Google Font 'Poppins' */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+/* Common Colors */
+:root {
+  --primary: #0f6292;
+  --secondary: #cff7ff;
+  --light: white;
+  --dark: #222222;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--primary);
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  padding-top: 5rem;
+  width: 1310px;
+  min-height: 100vh;
+}
+
+.wrapper .filter-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.wrapper .filter-buttons a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark);
+  text-decoration: none;
+  background-color: var(--light);
+  margin-right: 15px;
+  outline: none;
+  padding: 7px 20px;
+  border-radius: 25px;
+  transition: margin-top 0.2s ease, transform 0.2s ease;
+}
+
+.wrapper .filter-buttons a:hover {
+  transform: scale(1.1);
+  margin-top: -8px;
+}
+
+.wrapper .filter-buttons a.active {
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.wrapper .images {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.images li {
+  display: none;
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.images li.show {
+  display: block;
+}
+
+.images li img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid var(--light);
+  cursor: pointer;
+  transition: width 0.7s, height 0.7s;
+}
+
+.images li img:hover {
+  width: 400px;
+  height: 300px;
+  z-index: 10;
+}
+
+.big {
+  width: 400px !important;
+  height: 300px !important ;
+  z-index: 10900 !important;
+}
+
+@media screen and (max-width: 1350px) {
+  .wrapper {
+    width: 1000px;
+  }
+  .wrapper .images {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .wrapper .images {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .wrapper {
+    width: 680px;
+  }
+  .wrapper .images {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .wrapper {
+    align-items: center;
+    width: 550px;
+  }
+
+  .wrapper .filter-buttons a {
+    margin: 0 2px;
+    margin-bottom: 5px;
+    padding: 5px 15px;
+  }
+  .wrapper .images {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .images li {
+    width: 400px;
+    height: 300px;
+  }
+
+  .images li img:hover {
+    width: 500px;
+    height: 400px;
+  }
+}
